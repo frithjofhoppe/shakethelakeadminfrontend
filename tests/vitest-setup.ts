@@ -1,8 +1,9 @@
 // ./tests/setup.ts
-import '@testing-library/jest-dom/vitest'; // Extends Vitest's expect method with methods from react-testing-library
+import {describe, it, expect, afterEach} from 'vitest';
 
 import {cleanup} from '@testing-library/react';
-import {expect, afterEach} from 'vitest';
+
+import React from 'react';
 
 
 // Runs a cleanup after each test case (e.g. clearing jsdom)
