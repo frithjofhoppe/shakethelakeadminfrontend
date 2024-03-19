@@ -6,11 +6,14 @@ export default defineConfig(() => {
     build: {
       outDir: 'build',
     },
+    server: {
+      port: 8000,
+    },
     plugins: [react()],
     test: {
       environment: 'jsdom',
       globals: true,
       setupFiles: './tests/vitest-setup.ts',
-    }
+    },
   };
 });
