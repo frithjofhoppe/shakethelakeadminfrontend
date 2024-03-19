@@ -12,6 +12,7 @@ In the project directory, you can run:
 ### `pnpm build`
 ### `pnpm serve`
 ### `pnpm lint`
+### `pnpm test`
 
 ## Static code analysis
 
@@ -25,6 +26,11 @@ That we all have the same space/taps/width etc. please install the code extensio
 ### Pre hook
 
 We use husky for our pre commit handling --> https://typicode.github.io/husky/get-started.html
+
+## Unit testing
+
+Setup of the vite testing https://victorbruce82.medium.com/vitest-with-react-testing-library-in-react-created-with-vite-3552f0a9a19a
+
 
 ## Learn More
 
