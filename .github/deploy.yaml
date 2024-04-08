@@ -4,13 +4,7 @@ env:
   OUTPUT_LOCATION: "build" # location of client code build output
 
 on:
-  push:
-    branches:
-      - ci/basic-pipeline
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - ci/basic-pipeline
+  workflow_dispatch:
 
 permissions:
   issues: write
