@@ -1,3 +1,5 @@
+name: Deploy to Azure
+
 env:
   APP_LOCATION: "/" # location of your client code
   API_LOCATION: "api" # location of your api source code - optional
