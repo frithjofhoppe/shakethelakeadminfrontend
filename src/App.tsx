@@ -1,30 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import './assets/i18n/i18n'
+import HomePage from './pages/HomePage';
 
 function App() {
-  const { t } = useTranslation();
+    const {t} = useTranslation();
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('welcome_message')}
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <HomePage/>
+        </div>
+    );
 }
 
 export default App;
