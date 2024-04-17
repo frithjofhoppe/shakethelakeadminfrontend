@@ -3,10 +3,12 @@ import { EventDto } from '../models/api/event.model';
 import {getAllEvents} from "../services/EventService";
 import EventCard from "./EventCard";
 import {Button} from "../@/components/ui/button";
+import {useNavigate} from "react-router-dom";
+
 
 const EventList = () => {
     const [events, setEvents] = useState<EventDto[]>([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchEvents = async () => {
             try {
@@ -19,6 +21,10 @@ const EventList = () => {
         fetchEvents();
     }, []);
 
+    const handleCreateEventClick = () => {
+        navigate('/create-event');
+    };
+
     return (
         <div>
             <ul>
@@ -27,7 +33,7 @@ const EventList = () => {
                         <EventCard event={event}></EventCard>
                     </li>
                 ))}
-                <Button className="w-full border-2 border-gray-500 text-center text-black bg-transparent">
+                <Button onClick={handleCreateEventClick} className="w-full border-2 border-gray-500 text-center text-black bg-transparent">
                     Add new event
                 </Button>
             </ul>
