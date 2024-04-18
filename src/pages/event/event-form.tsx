@@ -35,14 +35,7 @@ const EventForm: React.FC = () => {
             id: 0,
             title: values.title,
             description: values.description,
-            location: {
-                name: values.location,
-                street: '',
-                streetNr: '',
-                postalCode: 0,
-                town: '',
-                canton: ''
-            },
+            location: values.location,
             date: values.date,
             customerCode: '',
             employeeCode: '',
