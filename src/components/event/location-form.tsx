@@ -1,7 +1,7 @@
 import React from 'react';
-import {FormControl, FormField, FormItem, FormLabel} from "../@/components/ui/form";
-import {Input} from "../@/components/ui/input";
 import {FormProvider, useForm} from "react-hook-form";
+import {FormControl, FormField, FormItem, FormLabel} from "../../@/components/ui/form";
+import {Input} from "../../@/components/ui/input";
 
 const LocationForm: React.FC = () => {
     const form = useForm();
@@ -10,6 +10,7 @@ const LocationForm: React.FC = () => {
             <div className="bg-white p-4 shadow rounded-lg mt-6">
                 <p className="font-bold text-lg mb-4">Location Details</p>
 
+                {/* eslint-disable-next-line react/jsx-no-undef */}
                 <FormField
                     control={form.control}
                     name="town"

@@ -13,7 +13,6 @@ export interface EventDto {
 }
 
 export interface Location {
-    id: number;
     name: string;
     street: string;
     streetNr: string;

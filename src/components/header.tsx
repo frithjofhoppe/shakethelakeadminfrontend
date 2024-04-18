@@ -4,7 +4,10 @@ import logo from '../../src/assets/icons/ti&m-logo.png';
 
 import {
     DropdownMenu,
-    DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "../@/components/ui/dropdown-menu";
 
@@ -19,7 +22,7 @@ const Header: React.FC = () => {
                     <DropdownMenuTrigger>Events</DropdownMenuTrigger>
                     <DropdownMenuContent>
                         <DropdownMenuLabel>Events</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
+                        <DropdownMenuSeparator/>
                         <DropdownMenuItem>19.06.2023</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -32,17 +35,16 @@ const Header: React.FC = () => {
                             <User className="text-black cursor-pointer " size={24}/>
                         </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                        className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <DropdownMenuContent>
                         <DropdownMenuItem onSelect={() => console.log('Profil')}>
-                            <p className="text-base font-light leading-5 text-primary">Profil</p>
+                            <p>Profil</p>
                         </DropdownMenuItem>
                         <DropdownMenuItem
                             onSelect={() => console.log('Einstellungen')}>
-                            <p className="text-base font-light leading-5 text-primary">Einstellungen</p>
+                            <p>Einstellungen</p>
                         </DropdownMenuItem>
                         <DropdownMenuItem onSelect={() => console.log('Abmelden')}>
-                            <p className="text-base font-light leading-5 text-primary">Abmelden</p>
+                            <p>Abmelden</p>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
