@@ -2,12 +2,12 @@ import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormControl, FormField, FormItem, FormLabel} from "../../@/components/ui/form";
-import {Input} from "../../@/components/ui/input";
-import {Button} from "../../@/components/ui/button";
 import {useNavigate} from "react-router-dom";
 import {EventDto} from "../../models/api/event.model";
 import {createEvent} from "../../services/EventService";
+import {Form, FormControl, FormField, FormItem, FormLabel} from "../../components/ui/form";
+import {Input} from '../../components/ui/input';
+import {Button} from "../../components/ui/button";
 
 const formSchema = z.object({
         title: z.string().min(5).max(20),
@@ -19,7 +19,7 @@ const formSchema = z.object({
     }
 );
 
-const EventForm: React.FC = () => {
+const CreateEvent: React.FC = () => {
     const navigate = useNavigate();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -35,7 +35,15 @@ const EventForm: React.FC = () => {
             id: 0,
             title: values.title,
             description: values.description,
-            location: values.location,
+            location: {
+                id: 0,
+                name: values.location,
+                street: '',
+                streetNr: 0,
+                town: '',
+                postalCode: 0,
+                canton: ''
+            },
             date: values.date,
             customerCode: '',
             employeeCode: '',
@@ -106,7 +114,8 @@ const EventForm: React.FC = () => {
                                        <FormItem>
                                            <FormLabel>Internal Start</FormLabel>
                                            <FormControl>
-                                               <Input type="datetime-local" {...field} className="input"/>
+                                               <Input type="datetime-local" {...field}
+                                                      className="input"/>
                                            </FormControl>
                                        </FormItem>
                                    )}></FormField>
@@ -115,7 +124,8 @@ const EventForm: React.FC = () => {
                                        <FormItem>
                                            <FormLabel>External Start</FormLabel>
                                            <FormControl>
-                                               <Input type="datetime-local" {...field} className="input"/>
+                                               <Input type="datetime-local" {...field}
+                                                      className="input"/>
                                            </FormControl>
                                        </FormItem>
                                    )}
@@ -132,4 +142,4 @@ const EventForm: React.FC = () => {
     );
 };
 
-export default EventForm;
+export default CreateEvent;

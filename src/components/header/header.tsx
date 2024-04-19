@@ -1,15 +1,13 @@
 import React from 'react';
 import {User} from "lucide-react";
-import logo from '../../src/assets/icons/ti&m-logo.png';
-
+import logo from '../../../src/assets/icons/ti&m-logo.png';
 import {
     DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
+    DropdownMenuContent, DropdownMenuItem,
+    DropdownMenuLabel, DropdownMenuSeparator,
     DropdownMenuTrigger
-} from "../@/components/ui/dropdown-menu";
+} from "../ui/dropdown-menu";
+
 
 const Header: React.FC = () => {
     return (

@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {getAllEvents} from "../services/EventService";
 import EventCard from "./event-card";
-import {EventDto} from "../models/api/event.model";
-import {Button} from "../@/components/ui/button";
 import {useNavigate} from "react-router-dom";
+import {EventDto} from "../../models/api/event.model";
+import {getAllEvents} from "../../services/EventService";
+import {Button} from "../../components/ui/button";
+
 
 const EventList = () => {
     const [events, setEvents] = useState<EventDto[]>([]);

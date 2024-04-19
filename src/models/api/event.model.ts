@@ -2,7 +2,7 @@ export interface EventDto {
     id: number;
     title: string;
     description: string;
-    location: string;
+    location: Location;
     date: string;
     customerCode: string;
     employeeCode: string;
@@ -10,4 +10,14 @@ export interface EventDto {
     isStarted: boolean;
     startedAt: string;
     endedAt: string;
+}
+
+export interface Location {
+    id: number;
+    name: string;
+    street: string;
+    streetNr: number;
+    town: string;
+    postalCode: number;
+    canton: string;
 }

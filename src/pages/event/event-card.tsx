@@ -1,15 +1,8 @@
 import React from 'react';
-import {EventDto} from "../models/api/event.model";
 import {ArrowRight, Trash} from 'lucide-react';
-import {deleteEvent} from '../services/EventService';
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle
-} from "../@/components/ui/card";
-
+import {EventDto} from "../../models/api/event.model";
+import {deleteEvent} from "../../services/EventService";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "../../components/ui/card";
 
 const EventCard: React.FC<{ event: EventDto }> = ({event}) => {
     const handleDelete = async () => {
