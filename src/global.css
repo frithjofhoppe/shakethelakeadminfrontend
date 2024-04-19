@@ -68,7 +68,6 @@
 
 @layer base {
     * {
-        @apply border-border;
         font-family: 'Roboto', sans-serif;
     }
 
