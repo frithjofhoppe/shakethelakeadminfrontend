@@ -1,7 +1,10 @@
+name: Deploy to Azure
+
 env:
   APP_LOCATION: "/" # location of your client code
   API_LOCATION: "api" # location of your api source code - optional
   OUTPUT_LOCATION: "build" # location of client code build output
+  CI: false
 
 on:
   workflow_dispatch:
