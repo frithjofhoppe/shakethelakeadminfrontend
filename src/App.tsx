@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import CreateEvent from "./pages/event/create-event";
 
 function App() {
+    // will be used for further translation steps
     const {t} = useTranslation();
 
     return (
