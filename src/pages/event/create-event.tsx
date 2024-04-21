@@ -23,14 +23,11 @@ const CreateEvent: React.FC = () => {
     const navigate = useNavigate();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
-        defaultValues: {
-            title: 'Sommer Event 2024',
-            description: '',
-        },
         mode: 'onChange'
     });
 
     const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (values) => {
+        // TODO sync for design/prototyp update: how to implement further form inputs for location properties
         const event: EventDto = {
             id: 0,
             title: values.title,
