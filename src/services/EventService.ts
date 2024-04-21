@@ -1,9 +1,10 @@
 import axios from 'axios';
 import {EventDto} from "../models/api/event.model";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const getAllEvents = async (): Promise<EventDto[]> => {
+    console.log(BASE_URL)
     const response = await axios.get<EventDto[]>(`${BASE_URL}/event`);
     return response.data;
 };
