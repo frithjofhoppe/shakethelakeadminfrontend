@@ -4,9 +4,9 @@ import Footer from "./footer/footer";
 
 const MainLayout: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col overflow-hidden">
             <Header/>
-            <div className="flex-grow">
+            <div className="flex-grow overflow-auto">
                 {children}
             </div>
             <Footer/>

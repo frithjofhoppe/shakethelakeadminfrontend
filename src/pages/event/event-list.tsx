@@ -44,7 +44,7 @@ const EventList = () => {
                     ))}
                 </ul>
                 <Button onClick={() => navigate('/create-event')}
-                        className=" w-full border-2 border-gray-500 text-center text-black bg-transparent">
+                        className="hover:bg-primary-blue hover:text-white w-full border-2 border-gray-500 text-center text-black bg-transparent">
                     Add new event
                 </Button>
             </div>

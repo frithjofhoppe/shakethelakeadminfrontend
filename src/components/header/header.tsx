@@ -1,6 +1,6 @@
 import React from 'react';
 import {User} from "lucide-react";
-import logo from '../../../src/assets/icons/ti&m-logo.png';
+import logo from '../../../src/assets/images/ti&m-logo.png';
 import {
     DropdownMenu,
     DropdownMenuContent, DropdownMenuItem,
@@ -11,8 +11,8 @@ import {
 
 const Header: React.FC = () => {
     return (
-        <header className="w-full p-4 fixed left-0 flex">
-            <img src={logo} alt="Website Logo" className="mr-2 ml-10 w-20 h-20"/>
+        <header className="w-full fixed left-0 flex px-10 py-4">
+            <img src={logo} alt="Website Logo" className="mr-2 w-20 h-20"/>
             <div className="flex-grow"></div>
 
             <div className="flex justify-end mr-20">
