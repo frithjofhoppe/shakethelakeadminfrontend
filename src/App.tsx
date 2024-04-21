@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Suspense} from 'react';
+import {useTranslation} from 'react-i18next';
+import './assets/i18n/i18n'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import MainLayout from "./components/MainLayout";
+import HomePage from "./pages/HomePage";
+import CreateEvent from "./pages/event/create-event";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // will be used for further translation steps
+    const {t} = useTranslation();
+
+    return (
+        <Router>
+            <MainLayout>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/create-event" element={<CreateEvent />} />
+                    </Routes>
+                </Suspense>
+            </MainLayout>
+        </Router>
+    );
 }
 
 export default App;
