@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "dotenv -f .env.production run react-scripts build",
+    "build": "bash load-envs.sh .env.production 'react-scripts build'",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
