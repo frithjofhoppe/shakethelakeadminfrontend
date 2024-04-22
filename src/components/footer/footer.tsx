@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as ShakeTheLakeIcon } from '../../assets/icons/shake-the-lake-white.svg';
+import {ReactComponent as ShakeTheLakeIcon} from '../../assets/icons/shake-the-lake-white.svg';
 
 const Footer: React.FC = () => {
     return (
