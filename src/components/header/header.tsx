@@ -3,8 +3,10 @@ import {User} from "lucide-react";
 import logo from '../../../src/assets/images/ti&m-logo.png';
 import {
     DropdownMenu,
-    DropdownMenuContent, DropdownMenuItem,
-    DropdownMenuLabel, DropdownMenuSeparator,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "../ui/dropdown-menu";
 
