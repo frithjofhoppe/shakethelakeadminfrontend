@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-We use pnpm in our project you can finde the documentation here: https://pnpm.io/ 
+We use pnpm in our project you can find the documentation here: https://pnpm.io/ 
 
 In the project directory, you can run:
 
@@ -18,7 +18,7 @@ In the project directory, you can run:
 
 ### Eslint
 
-Please install of you the vscode extension this will lint your code and make some tool tips when you add somne code which isn't our styleguid: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint 
+Please install of you the vscode extension this will lint your code and make some tool tips when you add some code which isn't our styleguid: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint 
 
 ### Pretier
 That we all have the same space/taps/width etc. please install the code extension: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
