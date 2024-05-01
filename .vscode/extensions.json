@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "formulahendry.auto-rename-tag",
+    "ambar.bundle-size",
+    "naumovs.color-highlight",
+    "dbaeumer.vscode-eslint",
+    "github.copilot",
+    "ecmel.vscode-html-css",
+    "sibiraj-s.vscode-scss-formatter",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+  ]
+}
