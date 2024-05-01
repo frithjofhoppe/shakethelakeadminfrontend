@@ -4,7 +4,6 @@ import {type EventDto} from '../models/api/event.model';
 const baseUrl = 'http://localhost:8080';
 
 export const getAllEvents = async (): Promise<EventDto[]> => {
-	console.log(baseUrl);
 	const response = await axios.get<EventDto[]>(`${baseUrl}/event`);
 	return response.data;
 };
