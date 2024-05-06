@@ -1,59 +1,79 @@
 import React from 'react';
-import {User} from 'lucide-react';
-import logo from '../../../src/assets/images/ti&m-logo.png';
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+import { CalendarCheck2, CalendarDays, CalendarRange, FolderCog, Menu, Sailboat} from 'lucide-react';
+import logo from '../../../src/assets/icons/shake-the-lake-icon.svg';
+import { Button } from '../ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import Link from 'next/link';
+import { Badge } from '../ui/badge';
 
+// todo! remove next/link, replace with the react-router-dom things
+// todo! only show lower sidebar parts when navigated to event
 
 const Header: React.FC = () => (
-	<header className="w-full fixed left-0 flex px-10 py-4">
-		<img src={logo} alt="Website Logo" className="mr-2 w-20 h-20"/>
-		<div className="flex-grow"></div>
-
-		<div className="flex justify-end mr-20">
-			<DropdownMenu>
-				<DropdownMenuTrigger>Events</DropdownMenuTrigger>
-				<DropdownMenuContent>
-					<DropdownMenuLabel>Events</DropdownMenuLabel>
-					<DropdownMenuSeparator/>
-					<DropdownMenuItem>19.06.2023</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
-		</div>
-
-		<div className="flex justify-end">
-			<DropdownMenu>
-				<DropdownMenuTrigger>
-					<a className="focus:outline-none pr-10">
-						<User className="text-black cursor-pointer " size={24}/>
-					</a>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent>
-					<DropdownMenuItem onSelect={() => {
-						console.log('Profil'); 
-					}}>
-						<p>Profil</p>
-					</DropdownMenuItem>
-					<DropdownMenuItem
-						onSelect={() => {
-							console.log('Einstellungen'); 
-						}}>
-						<p>Einstellungen</p>
-					</DropdownMenuItem>
-					<DropdownMenuItem onSelect={() => {
-						console.log('Abmelden'); 
-					}}>
-						<p>Abmelden</p>
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
-		</div>
+	<header className="flex h-14 items-center gap-4 border-b px-4 lg:h-[60px] lg:px-6 backdrop-blur sticky top-0">
+		<Sheet>
+			<SheetTrigger asChild>
+				<Button
+					variant="outline"
+					size="icon"
+					className="shrink-0 md:hidden"
+				>
+					<Menu className="h-5 w-5" />
+					<span className="sr-only">Toggle navigation menu</span>
+				</Button>
+			</SheetTrigger>
+			<SheetContent side="left" className="flex flex-col">
+				<nav className="grid gap-2 text-lg font-medium">
+					<Link
+						href="#"
+						className="flex items-center gap-2 text-lg font-semibold"
+					>
+						<img src={logo} alt="Website Logo" className="mr-2 h-10 w-10"/>
+						<span className="heading-xs">shake the lake</span>
+					</Link>
+					<Link
+						href="#"
+						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+					>
+						<CalendarDays className="h-5 w-5" />
+						Overview
+					</Link>
+					<Link
+						href="#"
+						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+					>
+						<FolderCog className="h-5 w-5" />
+						Activity Types
+						<Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+							6
+						</Badge>
+					</Link>
+					<Link
+						href="#"
+						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+					>
+						<Sailboat className="h-5 w-5" />
+						Boats
+					</Link>
+					<Link
+						href="#"
+						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+					>
+						<CalendarRange className="h-5 w-5" />
+						Schedule
+					</Link>
+					<Link
+						href="#"
+						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+					>
+						<CalendarCheck2 className="h-5 w-5" />
+						Bookings
+					</Link>
+				</nav>
+			</SheetContent>
+		</Sheet>
+		<div className="w-full flex-1"></div>
+		<Button variant="link" className="heading-xs">Events</Button>
 	</header>
 );
 

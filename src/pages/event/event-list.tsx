@@ -8,7 +8,7 @@ import {Button} from '../../components/ui/button';
 const EventList = () => {
 	const [events, setEvents] = useState<EventDto[]>([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | undefined>(null);
+	const [error, setError] = useState<string | undefined>(undefined);
 	const navigate = useNavigate();
 
 	useEffect(() => {

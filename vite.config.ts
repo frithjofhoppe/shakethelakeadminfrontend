@@ -15,5 +15,6 @@ export default defineConfig(() => {
       globals: true,
       setupFiles: './tests/vitest-setup.ts',
     },
+    define: {'process.env': process.env}
   };
 });
