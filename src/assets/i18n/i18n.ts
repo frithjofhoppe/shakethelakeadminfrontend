@@ -13,6 +13,7 @@ const resources: Resource = {
 			'ActivityTypes': 'Activity Types',
 			'Schedule': 'Schedule',
 			'Bookings': 'Bookings',
+			'Loading': 'Loading...',
 		},
 	},
 	de: {

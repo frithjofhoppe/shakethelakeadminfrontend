@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {type SubmitHandler, useForm} from 'react-hook-form';
 import {z} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
@@ -8,6 +8,7 @@ import {createEvent} from '../../services/EventService';
 import {Form, FormControl, FormField, FormItem, FormLabel} from '../../components/ui/form';
 import {Input} from '../../components/ui/input';
 import {Button} from '../../components/ui/button';
+import { EventContext } from '../../App';
 
 const formSchema = z.object({
 	title: z.string().min(5).max(20),
@@ -20,11 +21,16 @@ const formSchema = z.object({
 );
 
 const CreateEvent: React.FC = () => {
+	const eventContext = useContext(EventContext);
 	const navigate = useNavigate();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		mode: 'onChange',
 	});
+
+	useEffect(() => {
+		eventContext.setEvent({} as EventDto);
+	}, [])
 
 	const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (values) => {
 		// TODO sync for design/prototyp update: how to implement further form inputs for location properties
@@ -131,6 +137,7 @@ const CreateEvent: React.FC = () => {
 				</Form>
 				<div className="flex justify-end mt-5 space-x-2">
 					<Button variant="secondary" onClick={() => {
+						eventContext.setEvent(null)
 						navigate('/'); 
 					}}>Cancel</Button>
 					<Button className="bg-primary-blue text-white"

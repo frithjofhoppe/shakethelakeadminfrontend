@@ -10,13 +10,13 @@ const LanguageSelector: React.FC = () => {
 
 	const {t, i18n} = useTranslation();
 
-	const changeLanguageHandler = (lang: string) => {
+	const handleLanguageChange = (lang: string) => {
 		i18n.changeLanguage(lang);
 		setLanguage(lang);
 	};
     
 	return (
-		<ToggleGroup type="single" value={language} onValueChange={changeLanguageHandler} size={'sm'}
+		<ToggleGroup type="single" value={language} onValueChange={handleLanguageChange} size={'sm'}
 			className="text-white flex items-center space-x-1 text-sm">
 			<ToggleGroupItem value={DE} aria-label="Toggle german">
 				<div className="uppercase">de</div>
