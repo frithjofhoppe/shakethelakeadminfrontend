@@ -1,12 +1,11 @@
 import React from 'react';
-// Import ShakeTheLakeIcon from '../../assets/icons/shake-the-lake-white.svg?react';
+import logo from '../../assets/icons/ti-and-m-logo.svg';
+import LanguageSelector from './language-selector';
 
 const Footer: React.FC = () => (
-	<div
-		className="w-full bg-gradient-to-r from-sky-700 via-cyan-500 to-cyan-500 flex items-center justify-start px-10 py-8 h-32 md:h-36 lg:h-40 pt text-white">
-		<div className="h-28 w-28">
-			{/* <ShakeTheLakeIcon /> */}
-		</div>
+	<div className="w-full bg-primary-blue-dark flex items-center justify-between px-6 py-1 md:py-2 h-10 md:h-12 lg:h-14 pt text-white">
+		<img src={logo} alt="ti&m Logo" className="mr-2 p-1 h-full"/>
+		<LanguageSelector />
 	</div>
 );
 

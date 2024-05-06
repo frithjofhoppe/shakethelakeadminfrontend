@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header/header';
 import Footer from './footer/footer';
-import SideNavigation from './header/sidenavigation';
+import SideNavigation from './header/side-navigation';
 
 const MainLayout: React.FC<React.PropsWithChildren<Record<string, unknown>>> = ({children}) => (
 	<div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
