@@ -1,16 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import EventCard from './event-card';
-import {useNavigate} from 'react-router-dom';
+import React from 'react';
+import {useEffect, useState} from 'react';
 import {type EventDto} from '../../models/api/event.model';
 import {getAllEvents} from '../../services/EventService';
-import {Button} from '../../components/ui/button';
+import CreateEventDialog from './create-event-dialog';
 
 const EventList = () => {
 	const [events, setEvents] = useState<EventDto[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | undefined>(undefined);
-	const navigate = useNavigate();
 
+	// todo! throws warning sometimes:
+	// Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+
+	// todo! validation etc does not work anymore
 	useEffect(() => {
 		async function fetchEvents() {
 			try {
@@ -44,12 +46,8 @@ const EventList = () => {
 						<p className="text-center">No events yet.</p>
 					)} */}
 				</ul>
-				<Button onClick={() => {
-					navigate('/create-event'); 
-				}}
-				className="hover:bg-primary-blue hover:text-white w-full border-2 border-gray-500 text-center text-black bg-transparent">
-                    Add new event
-				</Button>
+
+				<CreateEventDialog />
 			</div>
 		</div>
 	);

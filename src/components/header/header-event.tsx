@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {CalendarCheck2, CalendarDays, CalendarRange, FolderCog, Menu, Sailboat} from 'lucide-react';
 import logo from '../../../src/assets/icons/shake-the-lake-icon.svg';
 import {Button} from '../ui/button';
@@ -6,10 +6,8 @@ import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Badge} from '../ui/badge';
 import {Link, useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import { EventContext } from '../../App';
-import HeaderLogo from './header-logo';
 
-// todo! remove next/link, replace with the react-router-dom things
+// Todo! remove next/link, replace with the react-router-dom things
 // todo! only show lower sidebar parts when navigated to event
 
 const EventNavigationElements = () => {
@@ -26,7 +24,7 @@ const EventNavigationElements = () => {
 				<nav className="grid gap-2 text-lg font-medium">
 					<Link to="#" className="flex items-center gap-2 text-lg font-semibold">
 						<img src={logo} alt="Website Logo" className="mr-2 h-10 w-10"/>
-						<span className="heading-xs">shake the lake</span>
+						<span className="heading-xs">{t('ShakeTheLake')}</span>
 					</Link>
 					<Link to="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
 						<CalendarDays className="h-5 w-5" />
@@ -55,20 +53,21 @@ const EventNavigationElements = () => {
 			</SheetContent>
 		</Sheet>
 	);
-}
+};
 
-const Header: React.FC = () => {
-	const eventContext = useContext(EventContext);
+const HeaderEvent: React.FC = () => {
 	const {t} = useTranslation();
 	const navigate = useNavigate();
 
 	return (
 		<header className="flex h-14 items-center gap-4 border-b px-4 lg:h-[60px] lg:px-6 backdrop-blur sticky top-0">
-			{eventContext.event == null ? <HeaderLogo /> : <EventNavigationElements /> }
+			<EventNavigationElements />
 			<div className="w-full flex-1"></div>
-			<Button variant="link" className="heading-xs" onClick={() => navigate("/")}>{t('Events')}</Button>
+			<Button variant="link" className="heading-xs" onClick={() => {
+				navigate('/'); 
+			}}>{t('Events')}</Button>
 		</header>
 	);
 };
 
-export default Header;
+export default HeaderEvent;

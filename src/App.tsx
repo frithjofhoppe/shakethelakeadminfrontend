@@ -1,33 +1,38 @@
-import React, {Dispatch, SetStateAction, Suspense, useState} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import './assets/i18n/i18n';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import MainLayout from './components/MainLayout';
+import {createBrowserRouter,  RouterProvider} from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import CreateEvent from './pages/event/create-event';
-import { EventDto } from './models/api/event.model';
+import EventDetailLayout from './components/event-detail-layout';
+import DefaultLayout from './components/main-layout';
+import EventOverview from './pages/event/event-overview';
 
-export const EventContext = React.createContext<{event: null | EventDto, setEvent: (event: null | EventDto) => void}>({event: null, setEvent: () => {}});
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <DefaultLayout />,
+		children: [{index: true, element: <HomePage />}],
+	},
+	{
+		path: '/event',
+		element: <EventDetailLayout />,
+		children: [
+			{path: ':id', element: <EventOverview />},
+			{index: true, element: <EventOverview />}, // todo! no index??
+		],
+	},
+]);
+
+// if (import.meta.hot) {
+// import.meta.hot.dispose(() => router.dispose());
+// }
 
 function App() {
-	// Will be used for further translation steps
 	const {t} = useTranslation();
-
-  	const [event, setEvent]: [null | EventDto, (event: null | EventDto) => void] = useState<EventDto | null>(null);
-
 	return (
-		<Router>
-			<EventContext.Provider value={{ event: event, setEvent: setEvent }}>
-				<MainLayout>
-					<Suspense fallback={<div>{t('Loading')}</div>}>
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="/create-event" element={<CreateEvent />} />
-						</Routes>
-					</Suspense>
-				</MainLayout>
-			</EventContext.Provider>
-		</Router>
+		<RouterProvider
+			router={router}
+			fallbackElement={<div>{t('Loading')}</div>}/>
 	);
 }
 
