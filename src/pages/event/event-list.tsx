@@ -9,7 +9,7 @@ const EventList = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | undefined>(undefined);
 
-	// todo! throws warning sometimes:
+	// Todo! throws warning sometimes:
 	// Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
 
 	// todo! validation etc does not work anymore

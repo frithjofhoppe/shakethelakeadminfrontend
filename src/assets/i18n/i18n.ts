@@ -1,29 +1,29 @@
 import i18n, {type Resource} from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import {EN, LANGUAGES} from '../../constants';
+import {en, languages} from '../../constants';
 
 const resources: Resource = {
 	en: {
 		translation: {
-			'WelcomeMessage': 'Welcome to React',
-			'AppName': 'Shake The Lake Admin App',
-			'ShakeTheLake': 'Shake The Lake',
-			'Events': 'Events',
-			'Overview': 'Overview',
-			'ActivityTypes': 'Activity Types',
-			'Schedule': 'Schedule',
-			'Bookings': 'Bookings',
-			'Loading': 'Loading...',
+			welcomeMessage: 'Welcome to React',
+			appName: 'Shake The Lake Admin App',
+			shakeTheLake: 'Shake The Lake',
+			events: 'Events',
+			overview: 'Overview',
+			activityTypes: 'Activity Types',
+			schedule: 'Schedule',
+			bookings: 'Bookings',
+			loading: 'Loading...',
 		},
 	},
 	de: {
 		translation: {
-			'WelcomeMessage': 'Willkommen bei React',
+			welcomeMessage: 'Willkommen bei React',
 		},
 	},
 	gsw: {
 		translation: {
-			'WelcomeMessage': 'Wiukomme bi React',
+			welcomeMessage: 'Wiukomme bi React',
 		},
 	},
 };
@@ -38,9 +38,9 @@ i18n
 			escapeValue: false,
 		},
 		// The default language
-		fallbackLng: EN,
+		fallbackLng: en,
 		// It shows the supported languages
-		supportedLngs: LANGUAGES.map(l => l.code),
+		supportedLngs: languages.map(l => l.code),
 	})
 	.then(() => 'obligatory for @typescript-eslint/no-floating-promises')
 	.catch(() => 'obligatory for @typescript-eslint/no-floating-promises');

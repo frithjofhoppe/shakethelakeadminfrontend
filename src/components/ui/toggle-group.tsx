@@ -22,8 +22,7 @@ VariantProps<typeof toggleVariants>
 	<ToggleGroupPrimitive.Root
 		ref={ref}
 		className={cn('flex items-center justify-center gap-1', className)}
-		{...props}
-	>
+		{...props}>
 		<ToggleGroupContext.Provider value={{variant, size}}>
 			{children}
 		</ToggleGroupContext.Provider>
@@ -44,13 +43,12 @@ VariantProps<typeof toggleVariants>
 			ref={ref}
 			className={cn(
 				toggleVariants({
-					variant: context.variant || variant,
-					size: context.size || size,
+					variant: context.variant ?? variant,
+					size: context.size ?? size,
 				}),
 				className,
 			)}
-			{...props}
-		>
+			{...props}>
 			{children}
 		</ToggleGroupPrimitive.Item>
 	);

@@ -15,9 +15,14 @@ const HeaderDefault: React.FC = () => {
 		<header className="flex h-14 items-center gap-4 border-b pr-4 lg:h-[60px] lg:pr-6 backdrop-blur sticky top-0">
 			<HeaderLogo />
 			<div className="w-full flex-1"></div>
-			<Button variant="link" className="heading-xs" onClick={() => {
-				navigate('/'); 
-			}}>{t('Events')}</Button>
+			<Button
+				variant="link"
+				className="heading-xs"
+				onClick={() => {
+					navigate('/');
+				}}>
+				{t('events')}
+			</Button>
 		</header>
 	);
 };

@@ -1,9 +1,9 @@
-export const EN = 'en';
-export const DE = 'de';
-export const CH = 'gsw';
+export const en = 'en';
+export const de = 'de';
+export const ch = 'gsw';
 
-export const LANGUAGES = [
-	{label: 'German', code: DE},
-	{label: 'English', code: EN},
-	{label: 'Swiss-German', code: CH},
+export const languages = [
+	{label: 'German', code: de},
+	{label: 'English', code: en},
+	{label: 'Swiss-German', code: ch},
 ];

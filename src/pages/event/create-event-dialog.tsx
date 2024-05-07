@@ -8,7 +8,7 @@ import {createEvent} from '../../services/EventService';
 import {Form, FormControl, FormField, FormItem, FormLabel} from '../../components/ui/form';
 import {Input} from '../../components/ui/input';
 import {Button} from '../../components/ui/button';
-import {DialogHeader, DialogFooter, DialogClose, Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../../components/ui/dialog';
+import {DialogHeader, DialogFooter, DialogClose, Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger} from '../../components/ui/dialog';
 
 const formSchema = z.object({
 	title: z.string().min(5).max(20),
@@ -20,7 +20,7 @@ const formSchema = z.object({
 },
 );
 
-// todo! sometimes this generates an error, investigate sometime
+// Todo! sometimes this generates an error, investigate sometime
 // Cannot update a component (`CreateEventDialog`) while rendering a different component (`Controller`). To locate the bad setState() call inside `Controller`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
 const CreateEventDialog: React.FC = () => {
 	const navigate = useNavigate();
