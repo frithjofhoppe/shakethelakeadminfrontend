@@ -1,26 +1,48 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import './assets/i18n/i18n';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import MainLayout from './components/MainLayout';
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	createBrowserRouter,
+	RouterProvider,
+	Outlet,
+} from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import CreateEvent from './pages/event/create-event';
+import EventDetailLayout from './components/event-detail-layout';
+import DefaultLayout from './components/main-layout';
+import EventOverview from './pages/event/event-overview';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <DefaultLayout />,
+		children: [
+			{index: true, element: <HomePage />},
+		],
+	},
+	{
+		path: '/event',
+		element: <EventDetailLayout />,
+		children: [
+			{path: ':id', element: <EventOverview />},
+			{index: true, element: <EventOverview />}, // todo! no index??
+		],
+	},
+]);
+
+// if (import.meta.hot) {
+// import.meta.hot.dispose(() => router.dispose());
+// }
 
 function App() {
-	// Will be used for further translation steps
 	const {t} = useTranslation();
-
 	return (
-		<Router>
-			<MainLayout>
-				<Suspense fallback={<div>Loading...</div>}>
-					<Routes>
-						<Route path="/" element={<HomePage />} />
-						<Route path="/create-event" element={<CreateEvent />} />
-					</Routes>
-				</Suspense>
-			</MainLayout>
-		</Router>
+		<RouterProvider
+			router={router}
+			fallbackElement={<div>{t('Loading')}</div>}
+		/>
 	);
 }
 
