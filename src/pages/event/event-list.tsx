@@ -24,7 +24,9 @@ const EventList = () => {
 			}
 		}
 
-		fetchEvents();
+		fetchEvents()
+			.then(() => 'obligatory for @typescript-eslint/no-floating-promises')
+			.catch(() => 'obligatory for @typescript-eslint/no-floating-promises');
 	}, []);
 
 	if (loading) return <p>Loading...</p>;
@@ -44,11 +46,12 @@ const EventList = () => {
 						<p className="text-center">No events yet.</p>
 					)} */}
 				</ul>
-				<Button onClick={() => {
-					navigate('/create-event'); 
-				}}
-				className="hover:bg-primary-blue hover:text-white w-full border-2 border-gray-500 text-center text-black bg-transparent">
-                    Add new event
+				<Button
+					onClick={() => {
+						navigate('/create-event');
+					}}
+					className="hover:bg-primary-blue hover:text-white w-full border-2 border-gray-500 text-center text-black bg-transparent">
+					Add new event
 				</Button>
 			</div>
 		</div>

@@ -4,12 +4,12 @@ import {initReactI18next} from 'react-i18next';
 const resources: Resource = {
 	en: {
 		translation: {
-			welcome_message: 'Welcome to React',
+			welcomeMessage: 'Welcome to React',
 		},
 	},
 	de: {
 		translation: {
-			welcome_message: 'Willkommen bei React',
+			welcomeMessage: 'Willkommen bei React',
 		},
 	},
 };
@@ -21,6 +21,8 @@ i18n.use(initReactI18next).init({
 	interpolation: {
 		escapeValue: false,
 	},
-});
+})
+	.then(() => 'obligatory for @typescript-eslint/no-floating-promises')
+	.catch(() => 'obligatory for @typescript-eslint/no-floating-promises');
 
 export default i18n;

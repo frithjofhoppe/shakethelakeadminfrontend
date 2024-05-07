@@ -16,7 +16,9 @@ import {Label} from './label';
 const Form = FormProvider;
 
 type FormFieldContextValue<
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	TFieldValues extends FieldValues = FieldValues,
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
 	name: TName;
@@ -27,7 +29,9 @@ const FormFieldContext = React.createContext<FormFieldContextValue>(
 );
 
 const FormField = <
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	TFieldValues extends FieldValues = FieldValues,
+	// eslint-disable-next-line @typescript-eslint/naming-convention
 	TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
 	...props
@@ -111,6 +115,7 @@ React.ComponentPropsWithoutRef<typeof Slot>
 			ref={ref}
 			id={formItemId}
 			aria-describedby={
+				// eslint-disable-next-line no-negated-condition
 				!error
 					? `${formDescriptionId}`
 					: `${formDescriptionId} ${formMessageId}`

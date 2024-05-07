@@ -10,6 +10,7 @@ const reportWebVitals = async (onPerfEntry?: ReportHandler) => {
 				getFCP(onPerfEntry);
 				getLCP(onPerfEntry);
 				getTTFB(onPerfEntry);
+				return undefined;
 			},
 		);
 	}
