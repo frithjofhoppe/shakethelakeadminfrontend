@@ -1,7 +1,7 @@
 env:
   browser: true
   es2021: true
-settings: 
+settings:
   react:
     version: 'detect'
 extends:
@@ -24,4 +24,6 @@ plugins:
   - react
   - prettier
   - promise
-rules: {}
+rules: {
+  react/prop-types: off
+}

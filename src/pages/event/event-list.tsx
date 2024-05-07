@@ -26,7 +26,9 @@ const EventList = () => {
 			}
 		}
 
-		fetchEvents();
+		fetchEvents()
+			.then(() => 'obligatory for @typescript-eslint/no-floating-promises')
+			.catch(() => 'obligatory for @typescript-eslint/no-floating-promises');
 	}, []);
 
 	if (loading) return <p>Loading...</p>;

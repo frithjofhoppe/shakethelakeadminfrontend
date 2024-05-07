@@ -41,6 +41,8 @@ i18n
 		fallbackLng: EN,
 		// It shows the supported languages
 		supportedLngs: LANGUAGES.map(l => l.code),
-	});
+	})
+	.then(() => 'obligatory for @typescript-eslint/no-floating-promises')
+	.catch(() => 'obligatory for @typescript-eslint/no-floating-promises');
 
-export default i18n;    
+export default i18n;
