@@ -12,6 +12,10 @@ import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Badge} from '../ui/badge';
 import {Link, useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import NavigationMenuItem, {
+	getNavigationItemsForEvent,
+} from './navigation-menu-item';
+import {NavigationEventDto} from '../../models/api/event.model';
 
 // Todo! remove next/link, replace with the react-router-dom things
 // todo! translate all texts
@@ -19,6 +23,23 @@ import {useTranslation} from 'react-i18next';
 const EventNavigationElements = () => {
 	const {t} = useTranslation();
 	const logoPath = '../../../src/assets/icons/shake-the-lake-icon.svg';
+
+	// todo! need add this centralized, able to be loaded once from backend
+	const exampleEvent: NavigationEventDto = {
+		id: 2,
+		title: 'Example Event 2024',
+		activityTypes: [{id: 1, localizedName: 'Wakeboarding'}],
+		boats: [
+			{id: 1, name: 'This is not actually a key'},
+			{id: 2, name: 'Poseidon'},
+		],
+	};
+
+	const navigationItems = getNavigationItemsForEvent(exampleEvent).map(
+		(item) => (
+			<NavigationMenuItem key={item.link} {...item} isMobileView={true} />
+		),
+	);
 
 	return (
 		<Sheet>
@@ -36,39 +57,7 @@ const EventNavigationElements = () => {
 						<img src={logoPath} alt="Website Logo" className="mr-2 h-10 w-10" />
 						<span className="heading-xs">{t('shakeTheLake')}</span>
 					</Link>
-					<Link
-						to="#"
-						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-						<CalendarDays className="h-5 w-5" />
-						{t('overview')}
-					</Link>
-					<Link
-						to="#"
-						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground">
-						<FolderCog className="h-5 w-5" />
-						{t('activityTypes')}
-						<Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-							6
-						</Badge>
-					</Link>
-					<Link
-						to="#"
-						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-						<Sailboat className="h-5 w-5" />
-						{t('Boats')}
-					</Link>
-					<Link
-						to="#"
-						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-						<CalendarRange className="h-5 w-5" />
-						{t('schedule')}
-					</Link>
-					<Link
-						to="#"
-						className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-						<CalendarCheck2 className="h-5 w-5" />
-						{t('bookings')}
-					</Link>
+					{navigationItems}
 				</nav>
 			</SheetContent>
 		</Sheet>

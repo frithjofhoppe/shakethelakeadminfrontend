@@ -21,3 +21,21 @@ export type Location = {
 	postalCode: number;
 	canton: string;
 };
+
+export type NavigationEventDto = {
+	id: number;
+	title: string;
+	activityTypes: NavigationActivityTypeDto[];
+	boats: NavigationBoatDto[];
+};
+
+export type NavigationActivityTypeDto = {
+	id: number;
+	localizedName: string;
+};
+
+export type NavigationBoatDto = {
+	id: number;
+	name: string;
+};
+

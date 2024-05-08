@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import EventDetailLayout from './components/event-detail-layout';
 import DefaultLayout from './components/main-layout';
 import EventOverview from './pages/event/event-overview';
+import {eventDetailRoutes} from './constants';
 
 const router = createBrowserRouter([
 	{
@@ -17,7 +18,24 @@ const router = createBrowserRouter([
 		path: '/event',
 		element: <EventDetailLayout />,
 		children: [
-			{path: ':id', element: <EventOverview />},
+			{
+				path: ':id',
+				element: <EventOverview />,
+				children: [
+					{
+						path: eventDetailRoutes.activityTypes,
+						element: <EventOverview />,
+						children: [{path: ':activityTypeId', element: <EventOverview />}],
+					},
+					{
+						path: eventDetailRoutes.boats,
+						element: <EventOverview />,
+						children: [{path: ':boatId', element: <EventOverview />}],
+					},
+					{path: eventDetailRoutes.schedule, element: <EventOverview />},
+					{path: eventDetailRoutes.bookings, element: <EventOverview />},
+				],
+			},
 			{index: true, element: <EventOverview />}, // Todo! no index??
 		],
 	},

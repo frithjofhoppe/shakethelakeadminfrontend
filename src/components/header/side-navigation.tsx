@@ -1,19 +1,30 @@
 import * as React from 'react';
 
-import {
-	CalendarDays,
-	FolderCog,
-	Sailboat,
-	CalendarRange,
-	CalendarCheck2,
-} from 'lucide-react';
-import {Badge} from '../ui/badge';
 import {Link} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
+import NavigationMenuItem, {
+	getNavigationItemsForEvent,
+} from './navigation-menu-item';
+import {type NavigationEventDto} from '../../models/api/event.model';
 
 const SideNavigation: React.FC = () => {
-	const {t} = useTranslation();
 	const logoPath = '../../../src/assets/icons/shake-the-lake-icon.svg';
+
+	// todo! need add this centralized, able to be loaded once from backend
+	const exampleEvent: NavigationEventDto = {
+		id: 2,
+		title: 'Example Event 2024',
+		activityTypes: [{id: 1, localizedName: 'Wakeboarding'}],
+		boats: [
+			{id: 1, name: 'This is not actually a key'},
+			{id: 2, name: 'Poseidon'},
+		],
+	};
+
+	const navigationItems = getNavigationItemsForEvent(exampleEvent).map(
+		(item) => (
+			<NavigationMenuItem key={item.link} {...item} isMobileView={false} />
+		),
+	);
 
 	return (
 		<div className="hidden md:block">
@@ -26,39 +37,7 @@ const SideNavigation: React.FC = () => {
 				</div>
 				<div className="flex-1 border-r">
 					<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-						<Link
-							to="#"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-							<CalendarDays className="h-4 w-4" />
-							{t('overview')}
-						</Link>
-						<Link
-							to="#"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-							<FolderCog className="h-4 w-4" />
-							{t('activityTypes')}
-							<Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-								6
-							</Badge>
-						</Link>
-						<Link
-							to="#"
-							className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
-							<Sailboat className="h-4 w-4" />
-							{t('Boats')}
-						</Link>
-						<Link
-							to="#"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-							<CalendarRange className="h-4 w-4" />
-							{t('schedule')}
-						</Link>
-						<Link
-							to="#"
-							className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
-							<CalendarCheck2 className="h-4 w-4" />
-							{t('bookings')}
-						</Link>
+						{navigationItems}
 					</nav>
 				</div>
 			</div>

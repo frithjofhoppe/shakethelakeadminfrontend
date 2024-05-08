@@ -7,3 +7,10 @@ export const languages = [
 	{label: 'English', code: en},
 	{label: 'Swiss-German', code: ch},
 ];
+
+export const eventDetailRoutes = {
+	activityTypes: 'activity-types',
+	boats: 'boats',
+	schedule: 'schedule',
+	bookings: 'bookings',
+};

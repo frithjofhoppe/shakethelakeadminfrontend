@@ -9,6 +9,7 @@ const resources: Resource = {
 			appName: 'Shake The Lake Admin App',
 			shakeTheLake: 'Shake The Lake',
 			events: 'Events',
+			boats: 'Boats',
 			overview: 'Overview',
 			activityTypes: 'Activity Types',
 			schedule: 'Schedule',
