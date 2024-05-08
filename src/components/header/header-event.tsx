@@ -1,30 +1,23 @@
 import React from 'react';
-import {
-	CalendarCheck2,
-	CalendarDays,
-	CalendarRange,
-	FolderCog,
-	Menu,
-	Sailboat,
-} from 'lucide-react';
+import {Menu} from 'lucide-react';
 import {Button} from '../ui/button';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
-import {Badge} from '../ui/badge';
 import {Link, useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import NavigationMenuItem, {
 	getNavigationItemsForEvent,
 } from './navigation-menu-item';
-import {NavigationEventDto} from '../../models/api/event.model';
+import {type NavigationEventDto} from '../../models/api/event.model';
+import {iconPaths} from '../../constants';
 
 // Todo! remove next/link, replace with the react-router-dom things
 // todo! translate all texts
+// todo! display event name as context somewhere, depending on design decisions
 
 const EventNavigationElements = () => {
 	const {t} = useTranslation();
-	const logoPath = '../../../src/assets/icons/shake-the-lake-icon.svg';
 
-	// todo! need add this centralized, able to be loaded once from backend
+	// Todo! need add this centralized, able to be loaded once from backend
 	const exampleEvent: NavigationEventDto = {
 		id: 2,
 		title: 'Example Event 2024',
@@ -54,7 +47,11 @@ const EventNavigationElements = () => {
 					<Link
 						to="#"
 						className="flex items-center gap-2 text-lg font-semibold">
-						<img src={logoPath} alt="Website Logo" className="mr-2 h-10 w-10" />
+						<img
+							src={iconPaths.shakeTheLake}
+							alt="Website Logo"
+							className="mr-2 h-10 w-10"
+						/>
 						<span className="heading-xs">{t('shakeTheLake')}</span>
 					</Link>
 					{navigationItems}

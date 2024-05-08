@@ -15,7 +15,7 @@ import {
 import {Button} from '../ui/button';
 import {useState} from 'react';
 import {cn} from '../../lib/utils';
-import {NavigationEventDto} from '../../models/api/event.model';
+import {type NavigationEventDto} from '../../models/api/event.model';
 import {eventDetailRoutes} from '../../constants';
 
 export type MenuItemProperties = {
@@ -69,12 +69,8 @@ const NavigationMenuItem = (props: MenuItemProperties) => {
 		props.subNavigations.length > 0;
 	const childItems = hasChildren
 		? props.subNavigations!.map((child) => (
-				<SubNavigationMenuItem
-					key={child.link}
-					labelKey={child.labelKey}
-					link={child.link}
-				/>
-			))
+			<SubNavigationMenuItem key={child.link} {...child} />
+		))
 		: undefined;
 
 	const isMobileView = props.isMobileView ?? false;

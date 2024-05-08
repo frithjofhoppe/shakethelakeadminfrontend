@@ -5,11 +5,11 @@ import NavigationMenuItem, {
 	getNavigationItemsForEvent,
 } from './navigation-menu-item';
 import {type NavigationEventDto} from '../../models/api/event.model';
+import {iconPaths} from '../../constants';
 
 const SideNavigation: React.FC = () => {
-	const logoPath = '../../../src/assets/icons/shake-the-lake-icon.svg';
-
-	// todo! need add this centralized, able to be loaded once from backend
+	// Todo! need add this centralized, able to be loaded once from backend
+	// todo! cleanup component structure of header in general
 	const exampleEvent: NavigationEventDto = {
 		id: 2,
 		title: 'Example Event 2024',
@@ -31,7 +31,11 @@ const SideNavigation: React.FC = () => {
 			<div className="flex h-full max-h-screen flex-col gap-2 sticky top-0">
 				<div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
 					<Link to="/" className="flex items-center gap-2 font-semibold">
-						<img src={logoPath} alt="Website Logo" className="mr-2 h-10 w-10" />
+						<img
+							src={iconPaths.shakeTheLake}
+							alt="Website Logo"
+							className="mr-2 h-10 w-10"
+						/>
 						<span className="heading-xs">shake the lake</span>
 					</Link>
 				</div>

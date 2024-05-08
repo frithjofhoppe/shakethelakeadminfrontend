@@ -3,10 +3,10 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {cn} from '../../lib/utils';
+import {iconPaths} from '../../constants';
 
-const HeaderLogo: React.FC = ({hasBorderBottom = false}) => {
+const HeaderLogo: React.FC = (hasBorderBottom = false) => {
 	const {t} = useTranslation();
-	const logoPath = '../../../src/assets/icons/shake-the-lake-icon.svg';
 
 	return (
 		<div
@@ -15,7 +15,11 @@ const HeaderLogo: React.FC = ({hasBorderBottom = false}) => {
 				hasBorderBottom ? 'border-b' : '',
 			)}>
 			<Link to="/" className="flex items-center gap-2 font-semibold">
-				<img src={logoPath} alt="Website Logo" className="mr-2 h-10 w-10" />
+				<img
+					src={iconPaths.shakeTheLake}
+					alt="Website Logo"
+					className="mr-2 h-10 w-10"
+				/>
 				<span className="heading-xs">{t('shakeTheLake')}</span>
 			</Link>
 		</div>

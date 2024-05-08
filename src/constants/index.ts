@@ -14,3 +14,8 @@ export const eventDetailRoutes = {
 	schedule: 'schedule',
 	bookings: 'bookings',
 };
+
+export const iconPaths = {
+	tiAndM: '/src/assets/icons/ti-and-m-logo.svg',
+	shakeTheLake: '/src/assets/icons/shake-the-lake-icon.svg',
+};
