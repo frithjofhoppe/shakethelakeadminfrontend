@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import EventCard from './event-card';
-import {useNavigate} from 'react-router-dom';
 import {type EventDto} from '../../models/api/event.model';
-import {getAllEvents} from '../../services/EventService';
-import {Button} from '../../components/ui/button';
+import {deleteEvent, getAllEvents} from '../../services/event-service';
+import CreateEventDialog from './create-event-dialog';
+import StlCard from '../../components/cards/card';
 
 const EventList = () => {
 	const [events, setEvents] = useState<EventDto[]>([]);
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | undefined>(null);
-	const navigate = useNavigate();
+	const [error, setError] = useState<string | undefined>(undefined);
 
+	// Todo! throws warning sometimes:
+	// Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+
+	// todo! validation etc does not work anymore
 	useEffect(() => {
 		async function fetchEvents() {
 			try {
@@ -32,27 +34,36 @@ const EventList = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>{error}</p>;
 
+	const handleDelete = async (id: number) => {
+		try {
+			await deleteEvent(id);
+			return true;
+		} catch (error) {
+			console.error(error); // todo! add "real" error handling
+			return false;
+		}
+	};
+
 	return (
 		<div className="flex justify-center w-full max-w-lg">
 			<div className="w-full max-w-6xl p-4">
 				<ul>
-					{/* {events.length > 0 ? (
-						events.map(event => (
+					{events.length > 0 ? (
+						events.map((event) => (
 							<li key={event.id} className="mb-4 flex justify-center">
-								<EventCard event={event}/>
+								<StlCard
+									{...event}
+									path={`event/${event.id}`}
+									handleDelete={handleDelete}
+								/>
 							</li>
 						))
 					) : (
 						<p className="text-center">No events yet.</p>
-					)} */}
+					)}
 				</ul>
-				<Button
-					onClick={() => {
-						navigate('/create-event');
-					}}
-					className="hover:bg-primary-blue hover:text-white w-full border-2 border-gray-500 text-center text-black bg-transparent">
-					Add new event
-				</Button>
+
+				<CreateEventDialog />
 			</div>
 		</div>
 	);
