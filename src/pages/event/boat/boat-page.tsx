@@ -9,7 +9,7 @@ const BoatPage: React.FC = () => {
 	return (
 		<>
 			<div className="flex flex-col items-center py-24">
-				<h1 className="text-2xl font-bold mb-10">Boat</h1>
+				<h1 className="text-2xl font-bold mb-10">{t('boat')}</h1>
 				<h4>{t('welcomeMessage')}</h4>
 			</div>
 		</>

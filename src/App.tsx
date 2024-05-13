@@ -1,5 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
+import './assets/i18n/i18n';
 import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
 import DefaultLayout from './components/default-layout';
 import EventDetailLayout from './components/event-detail-layout';
