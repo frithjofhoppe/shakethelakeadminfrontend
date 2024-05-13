@@ -8,6 +8,15 @@ import DefaultLayout from './components/default-layout';
 import EventOverview from './pages/event/event-overview';
 import {eventDetailRoutes} from './constants';
 import ErrorPage from './pages/error-page';
+import ActivityTypesOverview from './pages/activity-type/activity-types';
+import BoatsOverview from './pages/boat/boats';
+import Schedule from './pages/shedule/shedule';
+import Bookings from './pages/bookings/bookings';
+import ActivityTypesDetail from './pages/activity-type/activity-type';
+import Boat from './pages/boat/boat';
+import Boats from './pages/boat/boats';
+import ActivityType from './pages/activity-type/activity-type';
+import ActivityTypes from './pages/activity-type/activity-types';
 
 const router = createBrowserRouter([
 	{
@@ -27,21 +36,22 @@ const router = createBrowserRouter([
 			{
 				path: ':id',
 				element: <EventOverview />,
-				children: [
-					{
-						path: eventDetailRoutes.activityTypes,
-						element: <EventOverview />,
-						children: [{path: ':activityTypeId', element: <EventOverview />}],
-					},
-					{
-						path: eventDetailRoutes.boats,
-						element: <EventOverview />,
-						children: [{path: ':boatId', element: <EventOverview />}],
-					},
-					{path: eventDetailRoutes.schedule, element: <EventOverview />},
-					{path: eventDetailRoutes.bookings, element: <EventOverview />},
-				],
 			},
+			{
+				path: ':id/' + eventDetailRoutes.activityTypes,
+				element: <ActivityTypes />,
+			},
+			{
+				path: ':id/' + eventDetailRoutes.activityTypes + '/:activityTypeId',
+			 	element: <ActivityType />,
+			},
+			{
+				path: ':id/' + eventDetailRoutes.boats,
+				element: <Boats />,
+			},
+			{path: ':id/' + eventDetailRoutes.boats + '/:boatId', element: <Boat />},
+			{path: ':id/' + eventDetailRoutes.schedule, element: <Schedule />},
+			{path: ':id/' + eventDetailRoutes.bookings, element: <Bookings />},
 			{index: true, element: <EventOverview />}, // Todo! no index?? --> redirect, but how?
 		],
 	},
