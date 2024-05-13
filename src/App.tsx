@@ -1,22 +1,20 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import './assets/i18n/i18n';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import HomePage from './pages/home-page';
-import EventDetailLayout from './components/event-detail-layout';
+import {createBrowserRouter, Navigate, RouterProvider} from 'react-router-dom';
 import DefaultLayout from './components/default-layout';
-import EventOverview from './pages/event/event-overview';
+import EventDetailLayout from './components/event-detail-layout';
 import {eventDetailRoutes} from './constants';
-import ErrorPage from './pages/error-page';
-import ActivityTypesOverview from './pages/activity-type/activity-types';
-import BoatsOverview from './pages/boat/boats';
-import Schedule from './pages/shedule/shedule';
-import Bookings from './pages/bookings/bookings';
-import ActivityTypesDetail from './pages/activity-type/activity-type';
-import Boat from './pages/boat/boat';
-import Boats from './pages/boat/boats';
-import ActivityType from './pages/activity-type/activity-type';
-import ActivityTypes from './pages/activity-type/activity-types';
+import {
+	HomePage,
+	ErrorPage,
+	EventPage,
+	ActivityTypesPage,
+	ActivityTypePage,
+	BoatsPage,
+	BoatPage,
+	SchedulePage,
+	BookingsPage,
+} from './pages';
 
 const router = createBrowserRouter([
 	{
@@ -33,33 +31,38 @@ const router = createBrowserRouter([
 		path: '/event',
 		element: <EventDetailLayout />,
 		children: [
+			{index: true, element: <Navigate to="/" replace={true} />},
 			{
-				path: ':id',
-				element: <EventOverview />,
+				path: eventDetailRoutes.id,
+				element: <EventPage />,
 			},
 			{
-				path: ':id/' + eventDetailRoutes.activityTypes,
-				element: <ActivityTypes />,
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.activityTypes}`,
+				element: <ActivityTypesPage />,
 			},
 			{
-				path: ':id/' + eventDetailRoutes.activityTypes + '/:activityTypeId',
-			 	element: <ActivityType />,
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.activityTypes}/${eventDetailRoutes.activityTypeId}`,
+				element: <ActivityTypePage />,
 			},
 			{
-				path: ':id/' + eventDetailRoutes.boats,
-				element: <Boats />,
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.boats}`,
+				element: <BoatsPage />,
 			},
-			{path: ':id/' + eventDetailRoutes.boats + '/:boatId', element: <Boat />},
-			{path: ':id/' + eventDetailRoutes.schedule, element: <Schedule />},
-			{path: ':id/' + eventDetailRoutes.bookings, element: <Bookings />},
-			{index: true, element: <EventOverview />}, // Todo! no index?? --> redirect, but how?
+			{
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.boats}/${eventDetailRoutes.boatId}`,
+				element: <BoatPage />,
+			},
+			{
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.schedule}`,
+				element: <SchedulePage />,
+			},
+			{
+				path: `${eventDetailRoutes.id}/${eventDetailRoutes.bookings}`,
+				element: <BookingsPage />,
+			},
 		],
 	},
 ]);
-
-// If (import.meta.hot) {
-// import.meta.hot.dispose(() => router.dispose());
-// }
 
 function App() {
 	const {t} = useTranslation();
