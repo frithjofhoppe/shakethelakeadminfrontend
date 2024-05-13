@@ -1,5 +1,4 @@
-import React from 'react';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {type EventDto} from '../../models/api/event.model';
 import {deleteEvent, getAllEvents} from '../../services/event-service';
 import CreateEventDialog from './create-event-dialog';
