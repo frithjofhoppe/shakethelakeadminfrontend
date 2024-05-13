@@ -4,9 +4,6 @@ import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import HeaderLogo from './header-logo';
 
-// Todo! remove next/link, replace with the react-router-dom things
-// todo! only show lower sidebar parts when navigated to event
-
 const HeaderDefault: React.FC = () => {
 	const {t} = useTranslation();
 	const navigate = useNavigate();

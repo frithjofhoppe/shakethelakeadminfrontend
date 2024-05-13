@@ -11,9 +11,8 @@ import {
 	getNavigationItemsForEvent,
 } from '../navigation/navigation-models';
 
-// Todo! remove next/link, replace with the react-router-dom things
 // todo! translate all texts
-// todo! display event name as context somewhere, depending on design decisions
+// todo! save NavigationEventDto as context somewhere, in order to fill sidebar dynamically
 
 const EventNavigationElements = () => {
 	const {t} = useTranslation();

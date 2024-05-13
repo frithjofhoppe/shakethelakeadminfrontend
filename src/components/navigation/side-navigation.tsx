@@ -13,8 +13,6 @@ const SideNavigation: React.FC = () => {
 	const {t} = useTranslation();
 
 	// Todo! need add this centralized, able to be loaded once from backend
-	// todo! cleanup component structure of header in general
-	// todo! fix design of sidenav
 	const exampleEvent: NavigationEventDto = {
 		id: 2,
 		title: 'Example Event 2024',
@@ -45,7 +43,7 @@ const SideNavigation: React.FC = () => {
 					</Link>
 				</div>
 				<div className="flex-1 border-r">
-					<nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+					<nav className="grid items-start px-2 mt-4 text-sm font-medium lg:px-4">
 						{navigationItems}
 					</nav>
 				</div>

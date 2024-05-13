@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import {type EventDto} from '../../models/api/event.model';
-import {deleteEvent, getAllEvents} from '../../services/EventService';
+import {deleteEvent, getAllEvents} from '../../services/event-service';
 import CreateEventDialog from './create-event-dialog';
 import StlCard from '../../components/cards/card';
 

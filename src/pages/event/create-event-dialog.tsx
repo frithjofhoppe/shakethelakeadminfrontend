@@ -4,11 +4,26 @@ import {z} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useNavigate} from 'react-router-dom';
 import {type EventDto} from '../../models/api/event.model';
-import {createEvent} from '../../services/EventService';
-import {Form, FormControl, FormField, FormItem, FormLabel} from '../../components/ui/form';
+import {createEvent} from '../../services/event-service';
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+} from '../../components/ui/form';
 import {Input} from '../../components/ui/input';
 import {Button} from '../../components/ui/button';
-import {DialogHeader, DialogFooter, DialogClose, Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger} from '../../components/ui/dialog';
+import {
+	DialogHeader,
+	DialogFooter,
+	DialogClose,
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogTitle,
+	DialogTrigger,
+} from '../../components/ui/dialog';
 
 const formSchema = z.object({
 	title: z.string().min(5).max(20),
@@ -17,8 +32,7 @@ const formSchema = z.object({
 	internalEventStart: z.string(),
 	externalEventStart: z.string(),
 	location: z.string(),
-},
-);
+});
 
 // Todo! sometimes this generates an error, investigate sometime
 // Cannot update a component (`CreateEventDialog`) while rendering a different component (`Controller`). To locate the bad setState() call inside `Controller`, follow the stack trace as described in https://reactjs.org/link/setstate-in-render
@@ -64,97 +78,126 @@ const CreateEventDialog: React.FC = () => {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button className="w-full text-center">
-                    Add new event
-				</Button>
+				<Button className="w-full text-center">Add new event</Button>
 			</DialogTrigger>
 			<DialogContent className="sm:max-w-md h-full">
 				<DialogHeader>
 					<DialogTitle>Create Event</DialogTitle>
 					<DialogDescription>
-						There was some text to go here, todo!.
+						Add a new event by entering the basic meta data needed.
 					</DialogDescription>
 				</DialogHeader>
 				<div className="grow-0 overflow-auto min-h-32">
 					<Form {...form}>
 						<form className="p-1">
-							<FormField name="title" control={form.control} render={({field}) => (
-								<FormItem>
-									<FormLabel>Title</FormLabel>
-									<FormControl>
-										<Input placeholder="Sommer Event 2024" {...field}
-											className="input"/>
-									</FormControl>
-								</FormItem>
-							)}></FormField>
-							<FormField name="description" control={form.control}
+							<FormField
+								name="title"
+								control={form.control}
+								render={({field}) => (
+									<FormItem>
+										<FormLabel>Title</FormLabel>
+										<FormControl>
+											<Input
+												placeholder="Sommer Event 2024"
+												{...field}
+												className="input"
+											/>
+										</FormControl>
+									</FormItem>
+								)}></FormField>
+							<FormField
+								name="description"
+								control={form.control}
 								render={({field}) => (
 									<FormItem>
 										<FormLabel>Description</FormLabel>
 										<FormControl>
-											<Input placeholder="Shake the Lake 2024" {...field}
-												className="input"/>
+											<Input
+												placeholder="Shake the Lake 2024"
+												{...field}
+												className="input"
+											/>
 										</FormControl>
 									</FormItem>
 								)}></FormField>
 							{/* Location ist currently just a single string field for simplicity
 							In the Future we will need some more fields or a seperate form to fill the date for the location
 							*/}
-							<FormField name="location" control={form.control}
+							<FormField
+								name="location"
+								control={form.control}
 								render={({field}) => (
 									<FormItem>
 										<FormLabel>Location</FormLabel>
 										<FormControl>
-											<Input {...field} className="input"/>
+											<Input {...field} className="input" />
 										</FormControl>
 									</FormItem>
 								)}></FormField>
 
-							<FormField name="date" control={form.control} render={({field}) => (
-								<FormItem>
-									<FormLabel>Date</FormLabel>
-									<FormControl>
-										<Input type="datetime-local" {...field} className="input"/>
-									</FormControl>
-								</FormItem>
-							)}></FormField>
-							<FormField name="internalEventStart" control={form.control}
+							<FormField
+								name="date"
+								control={form.control}
+								render={({field}) => (
+									<FormItem>
+										<FormLabel>Date</FormLabel>
+										<FormControl>
+											<Input
+												type="datetime-local"
+												{...field}
+												className="input"
+											/>
+										</FormControl>
+									</FormItem>
+								)}></FormField>
+							<FormField
+								name="internalEventStart"
+								control={form.control}
 								render={({field}) => (
 									<FormItem>
 										<FormLabel>Internal Start</FormLabel>
 										<FormControl>
-											<Input type="datetime-local" {...field}
-												className="input"/>
+											<Input
+												type="datetime-local"
+												{...field}
+												className="input"
+											/>
 										</FormControl>
 									</FormItem>
 								)}></FormField>
-							<FormField name="externalEventStart" control={form.control}
+							<FormField
+								name="externalEventStart"
+								control={form.control}
 								render={({field}) => (
 									<FormItem>
 										<FormLabel>External Start</FormLabel>
 										<FormControl>
-											<Input type="datetime-local" {...field}
-												className="input"/>
+											<Input
+												type="datetime-local"
+												{...field}
+												className="input"
+											/>
 										</FormControl>
 									</FormItem>
-								)}
-							></FormField>
+								)}></FormField>
 						</form>
 					</Form>
 				</div>
 				<DialogFooter className="justify-end items-end">
 					<DialogClose asChild>
-						<Button type="button" variant="secondary">Cancel</Button>
-					</DialogClose>					
-					<Button type="submit"
+						<Button type="button" variant="secondary">
+							Cancel
+						</Button>
+					</DialogClose>
+					<Button
+						type="submit"
 						disabled={!form.formState.isValid}
 						onClick={form.handleSubmit(onSubmit)}>
-							Save
+						Save
 					</Button>
 				</DialogFooter>
 			</DialogContent>
 		</Dialog>
-		
 	);
 };
 
