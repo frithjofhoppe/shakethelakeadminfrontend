@@ -1,5 +1,5 @@
 import React from 'react';
-import SideNavigation from './header/side-navigation';
+import SideNavigation from './navigation/side-navigation';
 import {Outlet} from 'react-router-dom';
 import HeaderEvent from './header/header-event';
 import Footer from './footer/footer';

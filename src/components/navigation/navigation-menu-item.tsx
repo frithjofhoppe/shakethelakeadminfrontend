@@ -2,21 +2,14 @@ import * as React from 'react';
 import {NavLink} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 import {
-	CalendarCheck2,
-	CalendarDays,
-	CalendarRange,
 	ChevronDownIcon,
 	ChevronRightIcon,
-	FolderCog,
-	Sailboat,
 	ShieldAlertIcon,
 	type LucideIcon,
 } from 'lucide-react';
 import {Button} from '../ui/button';
 import {useState} from 'react';
 import {cn} from '../../lib/utils';
-import {type NavigationEventDto} from '../../models/api/event.model';
-import {eventDetailRoutes} from '../../constants';
 
 export type MenuItemProperties = {
 	labelKey: string;
@@ -128,51 +121,3 @@ const NavigationMenuItem = (props: MenuItemProperties) => {
 };
 
 export default NavigationMenuItem;
-
-export function getNavigationItemsForEvent(
-	event: NavigationEventDto,
-): MenuItemProperties[] {
-	const eventBasePath = '/event/' + event.id;
-	return [
-		{
-			link: eventBasePath,
-			labelKey: 'overview',
-			icon: CalendarDays,
-			needsFullMatch: true,
-		},
-		{
-			link: `${eventBasePath}/${eventDetailRoutes.activityTypes}`,
-			labelKey: 'activityTypes',
-			icon: FolderCog,
-			needsFullMatch: true,
-			subNavigations: event.activityTypes.map((activity) => ({
-				link: `${eventBasePath}/${eventDetailRoutes.activityTypes}/${activity.id}`,
-				labelKey: activity.localizedName,
-				needsFullMatch: true,
-			})),
-		},
-		{
-			link: `${eventBasePath}/${eventDetailRoutes.boats}`,
-			labelKey: 'boats',
-			icon: Sailboat,
-			needsFullMatch: true,
-			subNavigations: event.boats.map((boat) => ({
-				link: `${eventBasePath}/${eventDetailRoutes.boats}/${boat.id}`,
-				labelKey: boat.name,
-				needsFullMatch: true,
-			})),
-		},
-		{
-			link: `${eventBasePath}/${eventDetailRoutes.schedule}`,
-			labelKey: 'schedule',
-			icon: CalendarRange,
-			needsFullMatch: false,
-		},
-		{
-			link: `${eventBasePath}/${eventDetailRoutes.bookings}`,
-			labelKey: 'bookings',
-			icon: CalendarCheck2,
-			needsFullMatch: false,
-		},
-	];
-}

@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 import {Link} from 'react-router-dom';
-import NavigationMenuItem, {
-	getNavigationItemsForEvent,
-} from './navigation-menu-item';
-import {type NavigationEventDto} from '../../models/api/event.model';
+import NavigationMenuItem from './navigation-menu-item';
 import {iconPaths} from '../../constants';
 import {useTranslation} from 'react-i18next';
+import {
+	type NavigationEventDto,
+	getNavigationItemsForEvent,
+} from './navigation-models';
 
 const SideNavigation: React.FC = () => {
 	const {t} = useTranslation();

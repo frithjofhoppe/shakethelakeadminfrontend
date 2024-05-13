@@ -1,6 +1,5 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-// import {ExampleIcon} from '/src/assets/icons/shake-the-lake-icon.svg';
 import {iconPaths} from '../constants';
 import {Link} from 'react-router-dom';
 
@@ -16,7 +15,6 @@ const ErrorPage: React.FC = () => {
 					<h4>{t('pageNotFound')}</h4>
 				</p>
 				<div className="animate-bounce">
-					{/* <ExampleIcon className="mx-auto h-16 w-16 text-primary-blue" /> */}
 					<img
 						src={iconPaths.shakeTheLake}
 						className="mx-auto h-16 w-16 text-primary-blue"

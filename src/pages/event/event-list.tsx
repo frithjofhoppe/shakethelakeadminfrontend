@@ -1,8 +1,9 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import {type EventDto} from '../../models/api/event.model';
-import {getAllEvents} from '../../services/EventService';
+import {deleteEvent, getAllEvents} from '../../services/EventService';
 import CreateEventDialog from './create-event-dialog';
+import StlCard from '../../components/cards/card';
 
 const EventList = () => {
 	const [events, setEvents] = useState<EventDto[]>([]);
@@ -34,19 +35,33 @@ const EventList = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>{error}</p>;
 
+	const handleDelete = async (id: number) => {
+		try {
+			await deleteEvent(id);
+			return true;
+		} catch (error) {
+			console.error(error); // todo! add "real" error handling
+			return false;
+		}
+	};
+
 	return (
 		<div className="flex justify-center w-full max-w-lg">
 			<div className="w-full max-w-6xl p-4">
 				<ul>
-					{/* {events.length > 0 ? (
-						events.map(event => (
+					{events.length > 0 ? (
+						events.map((event) => (
 							<li key={event.id} className="mb-4 flex justify-center">
-								<EventCard event={event}/>
+								<StlCard
+									{...event}
+									path={`event/${event.id}`}
+									handleDelete={handleDelete}
+								/>
 							</li>
 						))
 					) : (
 						<p className="text-center">No events yet.</p>
-					)} */}
+					)}
 				</ul>
 
 				<CreateEventDialog />

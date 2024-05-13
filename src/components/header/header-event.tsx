@@ -4,11 +4,12 @@ import {Button} from '../ui/button';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Link, useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
-import NavigationMenuItem, {
-	getNavigationItemsForEvent,
-} from './navigation-menu-item';
-import {type NavigationEventDto} from '../../models/api/event.model';
+import NavigationMenuItem from '../navigation/navigation-menu-item';
 import {iconPaths} from '../../constants';
+import {
+	type NavigationEventDto,
+	getNavigationItemsForEvent,
+} from '../navigation/navigation-models';
 
 // Todo! remove next/link, replace with the react-router-dom things
 // todo! translate all texts
