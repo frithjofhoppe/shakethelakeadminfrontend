@@ -2,17 +2,23 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import './assets/i18n/i18n';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/home-page';
 import EventDetailLayout from './components/event-detail-layout';
-import DefaultLayout from './components/main-layout';
+import DefaultLayout from './components/default-layout';
 import EventOverview from './pages/event/event-overview';
 import {eventDetailRoutes} from './constants';
+import ErrorPage from './pages/error-page';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <DefaultLayout />,
 		children: [{index: true, element: <HomePage />}],
+		errorElement: (
+			<DefaultLayout>
+				<ErrorPage />
+			</DefaultLayout>
+		),
 	},
 	{
 		path: '/event',
@@ -36,7 +42,7 @@ const router = createBrowserRouter([
 					{path: eventDetailRoutes.bookings, element: <EventOverview />},
 				],
 			},
-			{index: true, element: <EventOverview />}, // Todo! no index??
+			{index: true, element: <EventOverview />}, // Todo! no index?? --> redirect, but how?
 		],
 	},
 ]);

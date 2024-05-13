@@ -38,4 +38,3 @@ export type NavigationBoatDto = {
 	id: number;
 	name: string;
 };
-

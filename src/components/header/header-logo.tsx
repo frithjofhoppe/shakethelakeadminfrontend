@@ -17,7 +17,7 @@ const HeaderLogo: React.FC = (hasBorderBottom = false) => {
 			<Link to="/" className="flex items-center gap-2 font-semibold">
 				<img
 					src={iconPaths.shakeTheLake}
-					alt="Website Logo"
+					alt={t('shakeTheLake')}
 					className="mr-2 h-10 w-10"
 				/>
 				<span className="heading-xs">{t('shakeTheLake')}</span>

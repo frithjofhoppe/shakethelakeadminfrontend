@@ -6,10 +6,14 @@ import NavigationMenuItem, {
 } from './navigation-menu-item';
 import {type NavigationEventDto} from '../../models/api/event.model';
 import {iconPaths} from '../../constants';
+import {useTranslation} from 'react-i18next';
 
 const SideNavigation: React.FC = () => {
+	const {t} = useTranslation();
+
 	// Todo! need add this centralized, able to be loaded once from backend
 	// todo! cleanup component structure of header in general
+	// todo! fix design of sidenav
 	const exampleEvent: NavigationEventDto = {
 		id: 2,
 		title: 'Example Event 2024',
@@ -28,15 +32,15 @@ const SideNavigation: React.FC = () => {
 
 	return (
 		<div className="hidden md:block">
-			<div className="flex h-full max-h-screen flex-col gap-2 sticky top-0">
+			<div className="flex h-full max-h-screen flex-col sticky top-0">
 				<div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
 					<Link to="/" className="flex items-center gap-2 font-semibold">
 						<img
 							src={iconPaths.shakeTheLake}
-							alt="Website Logo"
+							alt={t('shakeTheLake')}
 							className="mr-2 h-10 w-10"
 						/>
-						<span className="heading-xs">shake the lake</span>
+						<span className="heading-xs">{t('shakeTheLake')}</span>
 					</Link>
 				</div>
 				<div className="flex-1 border-r">

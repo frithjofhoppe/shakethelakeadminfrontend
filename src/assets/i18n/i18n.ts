@@ -8,6 +8,7 @@ const resources: Resource = {
 			welcomeMessage: 'Welcome to React',
 			appName: 'Shake The Lake Admin App',
 			shakeTheLake: 'Shake The Lake',
+			home: 'Home',
 			events: 'Events',
 			boats: 'Boats',
 			overview: 'Overview',
@@ -15,6 +16,9 @@ const resources: Resource = {
 			schedule: 'Schedule',
 			bookings: 'Bookings',
 			loading: 'Loading...',
+			page404Oops: 'Oops! Looks like you\'re lost.',
+			pageNotFound: 'This page could not be found.',
+			page404NavigateHome: 'Let\'s get you back',
 		},
 	},
 	de: {
@@ -24,7 +28,7 @@ const resources: Resource = {
 	},
 	gsw: {
 		translation: {
-			welcomeMessage: 'Wiukomme bi React',
+			welcomeMessage: 'Wiukommä bi Reäct',
 		},
 	},
 };
