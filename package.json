@@ -5,9 +5,10 @@
   "type": "module",
   "main": "index.tsx",
   "engines": {
-    "node": ">=21.7.2"
+    "node": ">=20.13.1"
   },
   "scripts": {
+    "build": "vite build",
     "dev": "vite",
     "test": "vitest run",
     "lint": "eslint src/**/*.tsx src/**/*.ts --fix",

@@ -5,6 +5,7 @@ export default defineConfig(() => {
 	return {
 		build: {
 			outDir: 'build',
+			target: 'esnext',
 		},
 		server: {
 			port: 3000,
