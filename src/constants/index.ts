@@ -8,9 +8,14 @@ export const languages = [
 	{label: 'Swiss-German', code: ch},
 ];
 
+export const eventBaseRoute = '/event/';
+
 export const eventDetailRoutes = {
+	id: ':id',
 	activityTypes: 'activity-types',
+	activityTypeId: ':activityTypeId',
 	boats: 'boats',
+	boatId: ':boatId',
 	schedule: 'schedule',
 	bookings: 'bookings',
 };

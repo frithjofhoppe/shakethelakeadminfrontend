@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {useLocation} from 'react-router-dom';
 import CreateEventDialog from './create-event-dialog';
 
-const EventOverview: React.FC = () => {
+const EventPage: React.FC = () => {
 	const {t} = useTranslation();
 	const location = useLocation();
 
@@ -20,4 +20,4 @@ const EventOverview: React.FC = () => {
 	);
 };
 
-export default EventOverview;
+export default EventPage;
