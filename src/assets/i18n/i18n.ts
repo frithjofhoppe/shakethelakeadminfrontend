@@ -5,9 +5,16 @@ import {en, languages} from '../../constants';
 const resources: Resource = {
 	en: {
 		translation: {
+			// Messages
 			welcomeMessage: 'Welcome to React',
+			loading: 'Loading...',
+			page404Oops: 'Oops! Looks like you\'re lost.',
+			pageNotFound: 'This page could not be found.',
+			page404NavigateHome: 'Let\'s get you back',
+			// Meta Data
 			appName: 'Shake The Lake Admin App',
 			shakeTheLake: 'Shake The Lake',
+			// Navigation Names
 			home: 'Home',
 			events: 'Events',
 			boats: 'Boats',
@@ -15,10 +22,10 @@ const resources: Resource = {
 			activityTypes: 'Activity Types',
 			schedule: 'Schedule',
 			bookings: 'Bookings',
-			loading: 'Loading...',
-			page404Oops: 'Oops! Looks like you\'re lost.',
-			pageNotFound: 'This page could not be found.',
-			page404NavigateHome: 'Let\'s get you back',
+			// Activity Type Texts
+			activityType: 'Activity Type',
+			// Boat Texts
+			boat: 'Boat',
 		},
 	},
 	de: {

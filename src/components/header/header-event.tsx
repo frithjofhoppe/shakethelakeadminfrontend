@@ -11,7 +11,7 @@ import {
 	getNavigationItemsForEvent,
 } from '../navigation/navigation-models';
 
-// todo! translate all texts
+// Todo! translate all texts
 // todo! save NavigationEventDto as context somewhere, in order to fill sidebar dynamically
 
 const EventNavigationElements = () => {
