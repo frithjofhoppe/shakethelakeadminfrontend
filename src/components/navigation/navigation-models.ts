@@ -1,5 +1,5 @@
 import {CalendarDays, FolderCog, Sailboat, CalendarRange, CalendarCheck2} from 'lucide-react';
-import {eventDetailRoutes} from '../../constants';
+import {eventBasePath, eventBaseRoute, eventDetailRoutes} from '../../constants';
 import {type MenuItemProperties} from './navigation-menu-item';
 
 export type NavigationEventDto = {
@@ -22,7 +22,7 @@ export type NavigationBoatDto = {
 export function getNavigationItemsForEvent(
 	event: NavigationEventDto,
 ): MenuItemProperties[] {
-	const eventBasePath = '/event/' + event.id;
+	const eventBasePath = eventBaseRoute + event.id;
 	return [
 		{
 			link: eventBasePath,

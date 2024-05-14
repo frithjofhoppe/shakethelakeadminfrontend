@@ -39,7 +39,7 @@ const EventList = () => {
 			await deleteEvent(id);
 			return true;
 		} catch (error) {
-			console.error(error); // todo! add "real" error handling
+			console.error(error); // Todo! add "real" error handling
 			return false;
 		}
 	};
